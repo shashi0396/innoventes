@@ -1,0 +1,11 @@
+FROM eclipse
+
+WORKDIR /app
+
+COPY .mvn/ .mvn
+COPY  pom.xml ./
+RUN ./mvnrapper/maven-wrapper
+
+COPY src ./src
+
+CMD ["./mvnw", "spring-boot:run"]
